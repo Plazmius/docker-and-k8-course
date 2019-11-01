@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t artemxl/docker-k8-course-section7 .
+
+script:
+  - docker run -e CI=true artemxl/docker-k8-course-section7 npm run test
